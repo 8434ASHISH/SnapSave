@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SnapSave - Download YouTube & Instagram Videos in One Click!</title>
+    <meta name="description" content="Free online tool to download YouTube videos, Instagram reels, and shorts. Save videos in HD quality with SnapSave's fast downloader.">
+    <meta name="keywords" content="youtube downloader, instagram video download, save videos, online downloader, SnapSave">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f4be.png">
+    
+    <!-- CDN Links -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #4361ee;
+            --secondary: #3f37c9;
+            --dark: #212529;
+            --light: #f8f9fa;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f5f7ff;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.8rem;
+        }
+        
+        .logo-icon {
+            color: var(--primary);
+            margin-right: 10px;
+        }
+        
+        .main-container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            padding: 2rem;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .download-btn {
+            background: var(--primary);
+            border: none;
+            padding: 12px 25px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .download-btn:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+        }
+        
+        .platform-badge {
+            font-size: 0.8rem;
+            padding: 5px 10px;
+            border-radius: 20px;
+        }
+        
+        .youtube-badge {
+            background: #FF0000;
+            color: white;
+        }
+        
+        .instagram-badge {
+            background: #E1306C;
+            color: white;
+        }
+        
+        .ad-container {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 30px 0;
+            border: 1px dashed #ccc;
+            text-align: center;
+        }
+        
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 2rem 0;
+        }
+        
+        .social-icon {
+            font-size: 1.5rem;
+            margin: 0 10px;
+            color: white;
+            transition: all 0.3s;
+        }
+        
+        .social-icon:hover {
+            color: var(--primary);
+            transform: scale(1.2);
+        }
+        
+        @media (max-width: 768px) {
+            .main-container {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+    
+    <!-- Google Analytics (Optional) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-download logo-icon"></i>
+                SnapSave
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#privacy">Privacy</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="main-container text-center">
+            <h1 class="mb-4">SnapSave</h1>
+            <h3 class="mb-4">Save Videos in One Click!</h3>
+            
+            <div class="mb-4">
+                <span class="platform-badge youtube-badge me-2">YouTube</span>
+                <span class="platform-badge instagram-badge">Instagram</span>
+            </div>
+            
+            <div class="input-group mb-4">
+                <input type="text" class="form-control form-control-lg" id="videoUrl" placeholder="Paste YouTube or Instagram link here...">
+                <button class="btn download-btn" type="button" id="downloadBtn">
+                    <i class="fas fa-download me-2"></i> Download
+                </button>
+            </div>
+            
+            <div id="result" class="mb-4"></div>
+            
+            <!-- AdSense Placeholder -->
+            <div class="ad-container">
+                <h5>Advertisement</h5>
+                <p>Your AdSense ad will appear here</p>
+                <small>Contact us for advertising: ads@snapsave.com</small>
+            </div>
+            
+            <div class="row mt-5">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <i class="fas fa-bolt fa-3x mb-3 text-primary"></i>
+                            <h5 class="card-title">Fast Downloads</h5>
+                            <p class="card-text">Get your videos in seconds with our high-speed servers.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <i class="fas fa-lock fa-3x mb-3 text-primary"></i>
+                            <h5 class="card-title">Secure</h5>
+                            <p class="card-text">We don't store your videos or personal information.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <i class="fas fa-mobile-alt fa-3x mb-3 text-primary"></i>
+                            <h5 class="card-title">Mobile Friendly</h5>
+                            <p class="card-text">Works perfectly on all devices - phones, tablets, and computers.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <div class="container py-5" id="about">
+        <div class="main-container">
+            <h2 class="mb-4">About SnapSave</h2>
+            <p>SnapSave is a free online video downloader that helps you save videos from YouTube and Instagram with just one click. Our mission is to provide a simple, fast, and secure way to download your favorite videos for offline viewing.</p>
+            <p>Founded in 2023, SnapSave has helped millions of users worldwide access their favorite content anytime, anywhere. Our tool requires no registration and works directly in your browser.</p>
+        </div>
+    </div>
+
+    <!-- Disclaimer Section -->
+    <div class="container py-5">
+        <div class="main-container">
+            <h2 class="mb-4">Disclaimer</h2>
+            <p>SnapSave is designed for downloading videos for personal use only. Please respect copyright laws and only download videos you have permission to use or that are in the public domain.</p>
+            <p>We do not host any videos on our servers. All videos are downloaded directly from their original sources. SnapSave is not responsible for how users utilize downloaded content.</p>
+        </div>
+    </div>
+
+    <!-- Privacy Policy Section -->
+    <div class="container py-5" id="privacy">
+        <div class="main-container">
+            <h2 class="mb-4">Privacy Policy</h2>
+            <p>At SnapSave, we take your privacy seriously. We do not collect or store any personal information when you use our service. Video URLs you submit for downloading are processed in real-time and not stored on our servers.</p>
+            <p>We may use cookies to improve your experience on our website. These cookies do not contain personal information and are used solely for analytics and functionality purposes.</p>
+            <p>Third-party advertisers on our site may use cookies for ad personalization. You can opt out of personalized advertising through your browser settings.</p>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="container py-5" id="contact">
+        <div class="main-container">
+            <h2 class="mb-4">Contact Us</h2>
+            <p>Have questions or suggestions? We'd love to hear from you!</p>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <form id="contactForm">
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea class="form-control" id="message" rows="3" required></textarea>
+                        </div>
+                        <button type="submit" class="btn download-btn">Send Message</button>
+                    </form>
+                </div>
+                <div class="col-md-6">
+                    <h5>Advertising Inquiry</h5>
+                    <p>For advertising opportunities, please contact:</p>
+                    <p><i class="fas fa-envelope me-2"></i> ads@snapsave.com</p>
+                    
+                    <h5 class="mt-4">Business Inquiry</h5>
+                    <p><i class="fas fa-envelope me-2"></i> contact@snapsave.com</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="mt-5">
+        <div class="container text-center">
+            <div class="mb-4">
+                <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+            </div>
+            
+            <div class="mb-3">
+                <a href="#" class="text-white me-3">Home</a>
+                <a href="#about" class="text-white me-3">About</a>
+                <a href="#privacy" class="text-white me-3">Privacy</a>
+                <a href="#contact" class="text-white">Contact</a>
+            </div>
+            
+            <p class="mb-0">© 2023 SnapSave. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('downloadBtn').addEventListener('click', function() {
+            const videoUrl = document.getElementById('videoUrl').value.trim();
+            const resultDiv = document.getElementById('result');
+            
+            if (!videoUrl) {
+                resultDiv.innerHTML = '<div class="alert alert-danger">Please enter a video URL!</div>';
+                return;
+            }
+            
+            resultDiv.innerHTML = '<div class="alert alert-info">Processing your request...</div>';
+            
+            // Simulate processing
+            setTimeout(() => {
+                if (videoUrl.includes('youtube.com') || videoUrl.includes('youtu.be')) {
+                    resultDiv.innerHTML = '<div class="alert alert-success">Your YouTube video is ready! Redirecting...</div>';
+                    window.open('https://yt1s.com/en?q=' + encodeURIComponent(videoUrl), '_blank');
+                } 
+                else if (videoUrl.includes('instagram.com')) {
+                    resultDiv.innerHTML = '<div class="alert alert-success">Your Instagram video is ready! Redirecting...</div>';
+                    window.open('https://downloadgram.org/video.php?url=' + videoUrl, '_blank');
+                }
+                else {
+                    resultDiv.innerHTML = '<div class="alert alert-danger">Only YouTube and Instagram links are supported!</div>';
+                }
+            }, 1500);
+        });
+        
+        // Contact form handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
