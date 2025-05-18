@@ -1,5 +1,0 @@
-# रिपॉजिटरी में एक खाली फाइल बनाएं
-echo "" > .nojekyll
-git add .nojekyll
-git commit -m "Add .nojekyll for GitHub Pages"
-git push
