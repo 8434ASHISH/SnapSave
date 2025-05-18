@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MultiDownloader - Download YouTube, Instagram & TikTok Videos Instantly</title>
+  <meta name="description" content="Free online tool to download YouTube, Instagram, and TikTok videos. Save in HD with MultiDownloader - fast & secure!">
+  <link rel="icon" href="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f4be.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #4361ee;
+      --secondary: #3f37c9;
+      --dark: #212529;
+      --light: #f8f9fa;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f5f7ff;
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    .main-container {
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      padding: 2rem;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+    .download-btn {
+      background: var(--primary);
+      border: none;
+      padding: 12px 25px;
+      font-weight: 600;
+    }
+    .platform-badge {
+      font-size: 0.8rem;
+      padding: 5px 10px;
+      border-radius: 20px;
+    }
+    .youtube-badge { background: #FF0000; color: white; }
+    .instagram-badge { background: #E1306C; color: white; }
+    .tiktok-badge { background: #000000; color: white; }
+    .card-title { font-weight: 600; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="main-container text-center">
+      <h1 id="title">MultiDownloader</h1>
+      <p id="tagline">Download <span class="text-danger">YouTube</span>, <span class="text-pink">Instagram</span> & <span class="text-dark">TikTok</span> videos instantly.</p>
+      <select class="form-select w-auto mx-auto my-3" id="langSelect" onchange="changeLang()">
+        <option value="en">English</option>
+        <option value="hi">हिन्दी</option>
+        <option value="bn">বাংলা</option>
+        <option value="es">Español</option>
+        <option value="tl">Filipino</option>
+        <option value="pt">Português</option>
+        <option value="fr">Français</option>
+        <option value="ar">العربية</option>
+        <option value="ru">Русский</option>
+        <option value="id">Bahasa Indonesia</option>
+      </select>
+
+      <div class="mb-3">
+        <span class="platform-badge youtube-badge me-2">YouTube</span>
+        <span class="platform-badge instagram-badge me-2">Instagram</span>
+        <span class="platform-badge tiktok-badge">TikTok</span>
+      </div>
+
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" id="videoUrl" placeholder="Paste your video URL here...">
+        <button class="btn download-btn" id="downloadBtn">Download</button>
+      </div>
+
+      <div id="result"></div>
+    </div>
+     <div class="main-container text-center">
+        <h5>Advertisement</h5>
+        <p>Your Advertisement ad will appear here</p>
+        <small>For advertising contact: <a href="mailto:first4bencher@gmail.com">first4bencher@gmail.com</a></small>
+      </div>
+    </div>
+    <div class="container mb-5">
+      <div class="row text-center">
+        <div class="col-md-4 mb-4">
+          <div class="card h-100">
+            <div class="card-body">
+              <i class="fas fa-bolt fa-3x mb-3 text-primary"></i>
+              <h5 class="card-title">Fast Downloads</h5>
+              <p class="card-text">Get your videos in seconds with our high-speed servers.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card h-100">
+            <div class="card-body">
+              <i class="fas fa-lock fa-3x mb-3 text-primary"></i>
+              <h5 class="card-title">Secure</h5>
+              <p class="card-text">We don’t store any videos or your personal information.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card h-100">
+            <div class="card-body">
+              <i class="fas fa-mobile-alt fa-3x mb-3 text-primary"></i>
+              <h5 class="card-title">Mobile Friendly</h5>
+              <p class="card-text">Use it on any device — phone, tablet, or desktop.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+       <!-- About Section -->
+    <div class="container py-5" id="about">
+        <div class="main-container">
+            <h2 class="mb-4">About MultiDownloader</h2>
+            <p>MultiDownloader is a free online video downloader that helps you save videos from YouTube and Instagram with just one click. Our mission is to provide a simple, fast, and secure way to download your favorite videos for offline viewing.</p>
+            <p>Founded in 2023, SnapSave has helped millions of users worldwide access their favorite content anytime, anywhere. Our tool requires no registration and works directly in your browser.</p>
+        </div>
+    </div>
+    <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: white;
+      color: black;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: black;
+    }
+    .faq {
+      margin-bottom: 20px;
+    }
+    .faq h3 {
+      margin-bottom: 10px;
+      color: black;
+    }
+    .faq p {
+      margin: 0;
+      line-height: 1.6;
+      color: black;
+    }
+  </style>
+</head>
+<body>
+ 
+ <div class="container">
+    <h1>Frequently Asked Questions (FAQ)</h1>
+    <div class="faq">
+      <h3>1. What is MultiDownloader?</h3>
+      <p>MultiDownloader is a versatile tool that allows you to download videos, audio, and other media from various platforms quickly and easily.</p>
+    </div>
+    <div class="faq">
+      <h3>2. Is MultiDownloader free to use?</h3>
+      <p>Yes, MultiDownloader is completely free for basic usage. We also offer premium features for advanced users at a small fee.</p>
+    </div>
+    <div class="faq">
+      <h3>3. Which platforms does MultiDownloader support?</h3>
+      <p>MultiDownloader supports popular platforms like YouTube, Instagram, Tiktok. Check our supported platforms page for a full list.</p>
+    </div>
+    <div class="faq">
+      <h3>4. Is it safe to use MultiDownloader?</h3>
+      <p>Absolutely! We prioritize user safety by ensuring all downloads are secure and free from malware. Always download from trusted sources.</p>
+    </div>
+    <div class="faq">
+      <h3>5. How can I contact support if I face issues?</h3>
+      <p>You can reach our support team via the Contact Us page on our website or email us directly at first4bencher@gmail.com.</p>
+    </div>
+  
+
+
+    <!-- Disclaimer Section -->
+    <div class="container py-5">
+        <div class="main-container">
+            <h2 class="mb-4">Disclaimer</h2>
+            <p>MultiDownloader is designed for downloading videos for personal use only. Please respect copyright laws and only download videos you have permission to use or that are in the public domain.</p>
+            <p>We do not host any videos on our servers. All videos are downloaded directly from their original sources. SnapSave is not responsible for how users utilize downloaded content.</p>
+        </div>
+    </div>
+
+    <!-- Privacy Policy Section -->
+    <div class="container py-5" id="privacy">
+        <div class="main-container">
+            <h2 class="mb-4">Privacy Policy</h2>
+            <p>At MultiDownloader, we take your privacy seriously. We do not collect or store any personal information when you use our service. Video URLs you submit for downloading are processed in real-time and not stored on our servers.</p>
+            <p>We may use cookies to improve your experience on our website. These cookies do not contain personal information and are used solely for analytics and functionality purposes.</p>
+            <p>Third-party advertisers on our site may use cookies for ad personalization. You can opt out of personalized advertising through your browser settings.</p>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="container py-5" id="contact">
+        <div class="main-container">
+            <h2 class="mb-4">Contact Us</h2>
+            <p>Have questions or suggestions? We'd love to hear from you!</p>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <form id="contactForm">
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea class="form-control" id="message" rows="3" required></textarea>
+                        </div>
+                        <button type="submit" class="btn download-btn">Send Message</button>
+                    </form>
+                </div>
+                <div class="col-md-6">
+                    <h5>Advertising Inquiry</h5>
+                    <p>For advertising opportunities, please contact:</p>
+                    <p><i class="fas fa-envelope me-2"></i> first4bencher@gmail.com</p>
+      <div class="main-container text-center">
+        <h5>Advertisement</h5>
+        <p>Your Advertisement ad will appear here</p>
+        <small>For advertising contact: <a href="mailto:first4bencher@gmail.com">first4bencher@gmail.com</a></small>
+      </div>
+    </div>
+ 
+    <footer class="bg-dark text-white text-center py-4">
+      <p>&copy; 2025 MultiDownloader. All rights reserved.</p>
+      <a href="#about" class="text-white me-3">About</a>
+      <a href="#privacy" class="text-white me-3">Privacy</a>
+      <a href="#contact" class="text-white">Contact</a>
+    </footer>
+
+    <script>
+      const workerURL = "https://your-worker-name.workers.dev"; // Replace with your deployed Worker URL
+
+      document.getElementById('downloadBtn').addEventListener('click', processLink);
+
+      async function processLink() {
+        const url = document.getElementById('videoUrl').value.trim();
+        const result = document.getElementById('result');
+
+        if (!url) {
+          result.innerHTML = '<div class="alert alert-danger">Please enter a video URL.</div>';
+          return;
+        }
+
+        result.innerHTML = '<div class="alert alert-info">Processing your request...</div>';
+
+        try {
+          const res = await fetch(`${workerURL}/?url=${encodeURIComponent(url)}`);
+          const data = await res.json();
+
+          if (data.success) {
+            const content = typeof data.result === 'string' ? data.result : JSON.stringify(data.result);
+            result.innerHTML = `<div class='alert alert-success'>Download ready:<br><a href='#' onclick='openPreview(${JSON.stringify(content)})'>Click to Preview</a></div>`;
+          } else {
+            result.innerHTML = '<div class="alert alert-warning">All servers failed. Please try again later.</div>';
+          }
+        } catch (err) {
+          result.innerHTML = '<div class="alert alert-danger">An error occurred. Please try again.</div>';
+        }
+      }
+
+      function openPreview(data) {
+        const newWindow = window.open("", "Download Preview", "width=800,height=600");
+        newWindow.document.write("<pre style='white-space:pre-wrap;word-wrap:break-word;'>" + data + "</pre>");
+        newWindow.document.close();
+      }
+    </script>
+</body>
+</html>
