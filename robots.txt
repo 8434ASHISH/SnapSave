@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://8434ashish.github.io/SnapSave/sitemap.xml
